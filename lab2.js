@@ -50,8 +50,26 @@ function assert(expression, failureMessage) {
  TODO: Then, use a loop to calculate how long it took the blob to finish
  with Dowington. */
 
+ function Blob(name, peopleConsumed, rateOfConsumption){
+  this.name = name;
+  this.peopleConsumed = peopleConsumed;
+  this.rateOfConsumption = rateOfConsumption;
+}
 
-var hoursSpentInDowington; // TODO: assign me the value of the
+var blob = new Blob('blob', 1, 1);
+
+var hours = 1; 
+var population = 1000;
+
+do {
+  population = population - hours;
+  hours = hours += 1;
+  console.log(hours);
+}
+while (population > 0);
+console.log(population);
+
+var hoursSpentInDowington = hours; // TODO: assign me the value of the
                            // above calculation (how long it took
                            // the blob to eat Dowington)
 
@@ -62,7 +80,18 @@ var hoursSpentInDowington; // TODO: assign me the value of the
 function hoursToOoze(population, peoplePerHour) {
   // TODO: implement me based on the instructions above.
   // Be sure to then assign me to the Blob's prototype.
+  this.population = population;
+  this.peoplePerHour = peoplePerHour;
 }
+
+Blob.prototype.hoursToOoze = function() {
+  this.population = peopleLeft;
+  do {
+   peopleLeft = peopleLeft - this.peoplePerHour;
+   hours = hours + 1;
+   }
+  while (peopleLeft > 0);
+};
 
 assert(blob.hoursToOoze(0, 1) === 0, 'no people means no time needed.');
 assert(blob.hoursToOoze(1000, 1) === hoursSpentInDowington,
